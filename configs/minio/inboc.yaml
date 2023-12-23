@@ -1,0 +1,5 @@
+conn:
+  mount_point: minio
+  kv_path: null
+bucket:
+  bucket_name: "mlflow"

@@ -1,0 +1,4 @@
+conn:
+  rw:
+    mount_point: clickhouse
+    kv_path:

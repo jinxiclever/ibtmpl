@@ -1,0 +1,11 @@
+
+conn:
+  rw:
+    mount_point: postgresql
+    kv_path:
+  rw_coordinator:
+    mount_point: postgresql
+    kv_path:
+
+
+

@@ -1,0 +1,13 @@
+conn:
+  experiment_name: ${projects.project.name}_${projects.project.sub_project}_${projects.project.env}
+  tracking_url: https://mlflow.inboc.net
+
+s3:
+  mount_point: mlflow
+  kv_path: inboc_s3
+run:
+  tag_key: pipeline_id
+  tag_value: ${pipelines.pipeline.pipeline_id}
+  run_id: null
+
+

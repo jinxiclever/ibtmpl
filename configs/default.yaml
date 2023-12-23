@@ -1,0 +1,24 @@
+defaults:
+  - minio: inboc.yaml
+  - duckdb: default.yaml
+  - projects: default.yaml
+  - paths: default.yaml
+  - extras: default.yaml
+  - hydra: default.yaml
+  - pipelines: default.yaml
+  - clickhouse: dev.yaml
+  - mlflow: inboc.yaml
+  - ray: inboc.yaml
+  - postgres: dev.yaml
+  - vault: inboc.yaml
+  - kafka: inboc.yaml
+  - redis: inboc.yaml
+  - _self_
+tags: ['null']
+
+
+
+
+#mlflow:
+#  run:
+#    run_id: 3135937f901e45a080e85ee32e29302f

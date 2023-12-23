@@ -1,0 +1,12 @@
+conn:
+  s3:
+    params:
+      tracking_url:
+        _target_: dbutil.vault.load.load_kv_config_from_vault
+        conn: ${vault.conn}
+        mount_point: mlflow
+        kv_path: inboc
+    use_ssl: False
+    url_style: "path"
+    database: null
+    read_only: False

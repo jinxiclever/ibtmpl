@@ -1,0 +1,12 @@
+pipeline:
+  type: null
+  batch_id: null
+  pipeline_id: ${projects.project.sub_project}_${projects.project.module}_${projects.project.sub_module}_${pipelines.pipeline.type}_${pipelines.pipeline.batch_id}
+  data_dir_path: ${projects.project.data_dir_path}/${pipelines.pipeline.batch_id} # 数据输入来源
+  task_dir_path: ${projects.project.task_dir_path}/${pipelines.pipeline.pipeline_id}
+  job_flow:
+    _target_: ibflow.job_flow.batch.BatchJobFlow
+    data_dir_path: ''
+    task_dir_path: ${pipelines.pipeline.task_dir_path}
+
+

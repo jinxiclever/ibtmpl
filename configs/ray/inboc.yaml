@@ -1,0 +1,3 @@
+conn:
+  api: ray://:10001
+  url: http://:8265

@@ -1,0 +1,10 @@
+project:
+  name: "Yu Zheng"
+  env:
+  sub_project:
+  module:
+  sub_module:
+  data_dir_path: ${paths.dir_path.data}/${projects.project.name}/${projects.project.env}/${projects.project.sub_project}/${projects.project.module}/${projects.project.sub_module}
+  task_dir_path: ${paths.dir_path.task}/${projects.project.name}/${projects.project.env}/${projects.project.sub_project}/${projects.project.module}/${projects.project.sub_module}
+  data_object_prefix: ${paths.object_prefix.data}/${projects.project.name}/${projects.project.env}/${projects.project.sub_project}/${projects.project.module}/${projects.project.module}/${projects.project.sub_module}
+  task_object_prefix: ${paths.object_prefix.task}/${projects.project.name}/${projects.project.env}/${projects.project.sub_project}/${projects.project.module}/${projects.project.sub_module}

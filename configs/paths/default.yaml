@@ -1,0 +1,13 @@
+dir_path:
+  root: /home/inboc
+  inboc: ${paths.dir_path.root}/inboc
+  work: ${paths.dir_path.inboc}/work
+  data: ${paths.dir_path.work}/data
+  task: ${paths.dir_path.work}/task
+  log: ${paths.dir_path.work}/log
+  hydra: ${hydra:runtime.output_dir}
+
+object_prefix:
+  data: data
+  task: task
+  log:  log

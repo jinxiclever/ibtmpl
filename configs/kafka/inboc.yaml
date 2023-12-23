@@ -1,0 +1,7 @@
+conn:
+  mount_point: kafka
+  kv_path: inboc
+
+topic:
+  job_set_topic: inboc_${projects.project.name}_job_set
+  job_subset_topic: inboc_${projects.project.name}_job_subset

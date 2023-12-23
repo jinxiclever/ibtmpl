@@ -1,0 +1,4 @@
+conn:
+  rw:
+    mount_point: redis
+    kv_path: default

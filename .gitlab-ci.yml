@@ -1,0 +1,33 @@
+variables:
+  PACKAGE_NAME: "ibtmpl"
+  PACKAGE_GIT_URL: "gitlab.inboc.net/inboc-devops/util/${PACKAGE_NAME}.git"
+  PACKAGE_BRANCH: "develop"
+
+  PYPI_USER: "${INBOC_DEV_PYPI_USER}"
+  PYPI_TOKEN: "${INBOC_DEV_PYPI_TOKEN}"
+  PYPI_REPO_URL: "gitlab.inboc.net/api/v4/projects/89/packages/pypi"
+
+  DEV_RC_INDEX_URL: "https://${PYPI_USER}:${PYPI_TOKEN}@$PYPI_REPO_URL/simple"
+  NEXUS_INDEX_URL: "https://nexus.inboc.net/repository/pypi/simple"
+
+  POETRY_ENV_PATH: /home/inboc/inboc/source
+stages:
+  - build_source_test_package
+
+build-source-test-package:
+  image:
+    name: repo.inboc.net/inboc/ubuntu:22.04-py3.10.12
+    pull_policy: always
+  stage: build_source_test_package
+  script:
+    - cd $POETRY_ENV_PATH
+    - git clone https://$PYPI_USER:$PYPI_TOKEN@$PACKAGE_GIT_URL
+    - cd $PACKAGE_NAME
+    - git checkout $PACKAGE_BRANCH
+    - poetry config http-basic.inboc-gitlab $PYPI_USER $PYPI_TOKEN
+    - poetry config http-basic.inboc-gitlab-util $PYPI_USER $PYPI_TOKEN
+    - poetry install
+    - poetry run coverage run -m pytest
+    - bash remove_pkg.sh
+    - python3 setup.py sdist bdist_wheel
+    - poetry run twine upload -u $PYPI_USER -p $PYPI_TOKEN --repository-url https://$PYPI_REPO_URL dist/*
